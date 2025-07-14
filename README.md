@@ -27,5 +27,31 @@ A API está disponível em:
 
 **https://jwt-auth-challenge.up.railway.app/**
 
+Endpoints da API
+Todas as rotas abaixo têm prefixo https://jwt-auth-challenge.up.railway.app/api
+POST /signup
+Criação de novo usuário.
 
+Headers:
+Content-Type: application/json
+
+Body:
+{
+  "email": "user@example.com",
+  "password": "123456",
+  "name": "User Test"
+}
+
+
+🔒 GET /users
+
+GET /users
+Retorna todos os usuários cadastrados.
+(Protegido por token JWT)
+
+Retorna todos os usuários cadastrados.
+(Protegido por token JWT)
+
+Headers:
+Authorization: Bearer <seu-token-jwt>
 

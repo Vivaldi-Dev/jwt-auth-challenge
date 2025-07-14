@@ -63,3 +63,22 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     user: userWithoutPassword
   });
 };
+
+export const getAllUsers = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const users = await prisma.user.findMany({
+      select: {
+        id: true,
+        email: true,
+        name: true,
+        createdAt: true,
+        updatedAt: true,
+      }
+    });
+
+    res.json({ users });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Erro ao buscar usuários." });
+  }
+};
